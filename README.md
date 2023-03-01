@@ -7,7 +7,7 @@ The number of information that you will get:
 - check on installed services (webproxy, vpn, rdm)
 - Windows/Linux GUID
 - information on the current logged-in user
-(We've got a custom license)
+(Please read our custom license what you're allowed to do)
 
 ## Installation
 N/A
