@@ -1,6 +1,6 @@
 # Info-Reaper
 (Please read our custom license what you're allowed to do) <br />
-\nThe number of information that you will get:
+The number of information that you will get:
 - Device Name, Username
 - hardware information (CPU, GPU, RAM)
 - Device ID, Product ID
