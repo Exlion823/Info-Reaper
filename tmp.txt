@@ -1,4 +1,3 @@
 - main.py
 - admin.py
 - functions.py
-- setup.py
