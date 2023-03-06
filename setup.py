@@ -1,13 +1,10 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="info",
+    name="info-reaper",
     version="0.1",
-    description="Allows you to gather Some Information about your pc",
-    packages=find_packages(),
-    entry_points={
-        "console_scripts": ["info=info.main"]
-    },
-    author="Vbuuu, iLvkii",
-    license="Custom"
+    packages=find_packages(where="src"),
+    package_dir={"": "src"},
+    install_requires=[],
+    entry_points={"console_scripts": ["info-reaper=main:main"]}
 )
