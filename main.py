@@ -20,8 +20,8 @@ def setupConfig():
   global app
   app = App()
 
-  app.setAnimation(True)
-  app.setColorful(True)
+  app.setAnimation(False)
+  app.setColorful(False)
 
 
 def main():
@@ -30,16 +30,17 @@ def main():
   colorama.init(autoreset=True)
   colors = [colorama.Fore.BLUE, colorama.Fore.RED,
             colorama.Fore.WHITE, colorama.Fore.GREEN]
+  color = random.choice(colors)
 
   for char in banner:
     if app.getColorful():
-      print(random.choice(colors)+char, end="")
+      print(random.choice(colors) + char, end="")
     else:
-      print(char, end="")
+      print(color + char, end="")
+
     sys.stdout.flush()
     if app.getAnimation():
       sleep(0.0001)
 
 
-if __name__ == "__main__":
-  main()
+main()
