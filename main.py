@@ -1,5 +1,5 @@
 import colorama
-from random import random
+import random
 colorama.init(autoreset=True)
 
 colors = [colorama.Fore.BLUE, colorama.Fore.RED, colorama.Fore.WHITE, colorama.Fore.GREEN]
