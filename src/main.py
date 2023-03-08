@@ -10,9 +10,9 @@ from menus import home
 
 banner = """
   _____       __       ______                           
-  |_   _|     / _|      | ___ \\                          
-    | | _ __ | |_ ___   | |_/ /___  __ _ _ __   ___ _ __ 
-    | || '_ \\|  _/ _ \\  |    // _ \\/ _` | '_ \\ / _ \\ '__|
+ |_   _|     / _|      | ___ \\                          
+   | | _ __ | |_ ___   | |_/ /___  __ _ _ __   ___ _ __      
+   | || '_ \\|  _/ _ \\  |    // _ \\/ _` | '_ \\ / _ \\ '__|
   _| || | | | || (_) | | |\\ \\  __/ (_| | |_) |  __/ |   
   \\___/_| |_|_| \\___/  \\_| \\_\\___|\\__,_| .__/ \\___|_|   
                                         | |
@@ -34,22 +34,26 @@ def setupConfig() -> None:
 
 
 def main():
+  try:
+    setupConfig()
 
-  setupConfig()
+    # Startup animation
+    if os.get_terminal_size().columns >= 57:  # size of the banner
+      for char in banner:
+        if app.getColorful():
+          print(random.choice(colors) + char, end="")
+        else:
+          print(color + char, end="")
 
-  # Startup animation
-  if os.get_terminal_size().columns >= 57:  # size of the banner
-    for char in banner:
-      if app.getColorful():
-        print(random.choice(colors) + char, end="")
-      else:
-        print(color + char, end="")
+        sys.stdout.flush()
+        if app.getStartupAnimation():
+          sleep(0.0001)
 
-      sys.stdout.flush()
-      if app.getStartupAnimation():
-        sleep(0.0001)
+    # Main menu
 
-  # Main menu
+    print()
+    home.main()
 
-  print()
-  home.main()
+  except KeyboardInterrupt:
+    print("Interrupted")
+    sys.exit(130)
