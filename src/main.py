@@ -1,4 +1,5 @@
 
+import os
 import random
 import sys
 from time import sleep
@@ -37,16 +38,16 @@ def main():
   setupConfig()
 
   # Startup animation
+  if os.get_terminal_size().columns >= 57:  # size of the banner
+    for char in banner:
+      if app.getColorful():
+        print(random.choice(colors) + char, end="")
+      else:
+        print(color + char, end="")
 
-  for char in banner:
-    if app.getColorful():
-      print(random.choice(colors) + char, end="")
-    else:
-      print(color + char, end="")
-
-    sys.stdout.flush()
-    if app.getStartupAnimation():
-      sleep(0.0001)
+      sys.stdout.flush()
+      if app.getStartupAnimation():
+        sleep(0.0001)
 
   # Main menu
 

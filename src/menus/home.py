@@ -1,10 +1,14 @@
-import sys
-from helpers.choices import Chooser
+from helpers.choiceHelper import Chooser, Option
+
+
+def Exit():
+  print("Hello World")
 
 
 def main():
-  chooser = Chooser(["Exit"])
-  option = chooser.exec()
-
-  if option == 1:
-    sys.exit(0)
+  chooser = Chooser([Option(name="Exit", func=Exit)])
+  try:
+    chooser.exec()
+  except IndexError:
+    print("Please select a valid Option")
+    main()
