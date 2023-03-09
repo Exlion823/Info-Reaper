@@ -38,7 +38,7 @@ def main():
     setupConfig()
 
     # Startup animation
-    if os.get_terminal_size().columns >= 57:  # size of the banner
+    if 57 <= os.get_terminal_size().columns:  # size of the banner
       for char in banner:
         if app.getColorful():
           print(random.choice(colors) + char, end="")
